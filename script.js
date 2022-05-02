@@ -49,3 +49,30 @@ function playRound(playerSelection, computerSelection) {
     }
     return result
 }
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    while(playerScore < 5 && computerScore < 5) {
+        const playerSelection = playerPlay()
+        const computerSelection = computerPlay()
+        rpsRound = playRound(playerSelection, computerSelection)
+        if(rpsRound.includes(`Win`)) {
+            ++playerScore;
+        }
+        else if(rpsRound.includes(`Lose`)) {
+            ++computerScore;
+        }    
+        console.log(playRound(playerSelection, computerSelection))
+        result = `Score is, Player: ${playerScore}     Computer: ${computerScore}`
+        console.log(result)
+    }
+    let playerWins = (playerScore > computerScore)
+    if(playerWins) {
+        console.log(`You Won with a Score of ${playerScore} to ${computerScore}`)
+    }
+    else {
+        console.log(`You Lost with a Score of ${playerScore} to ${computerScore}`)
+    }
+}
+console.log(game())
