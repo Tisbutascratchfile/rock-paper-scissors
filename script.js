@@ -34,4 +34,18 @@ function playerPlay() {
       playerChoice = s
     }
     return playerChoice;
-  }
+}
+
+function playRound(playerSelection, computerSelection) {
+    let result;
+    if(playerSelection === computerSelection) {
+        result = `It's a Draw!! You both choose ${computerSelection}.`;
+    }
+    else if(playerSelection === r && computerSelection === s || playerSelection === s && computerSelection === p ||playerSelection === p && computerSelection === r) {
+        result = `You Win!! ${playerSelection} beats ${computerSelection}.`;
+    }
+    else {
+        result = `You Lose!! ${computerSelection} beats ${playerSelection}.`;
+    }
+    return result
+}
